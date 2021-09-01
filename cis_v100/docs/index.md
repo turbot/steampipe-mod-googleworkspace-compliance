@@ -2,7 +2,7 @@
 repository: "https://github.com/turbot/steampipe-mod-googleworkspace-compliance"
 ---
 
-# Google Worksapce Compliance Mod
+# Google Workspace Compliance Mod
 
 Run individual configuration, compliance and security controls or full CIS compliance benchmarks for all your Google Workspace.
 
