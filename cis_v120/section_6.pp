@@ -124,7 +124,7 @@ control "cis_v120_6_7" {
 
 control "cis_v120_6_8" {
   title         = "6.8 (L1) Ensure Gmail potential employee spoofing is configured"
-  description   = "Configuring and enabling the setting that an alert will be generated when Google detects incoming messages are received where a sender’s name is in your Google Workspace directory, but the mail is not from your company’s domains or domain aliases."
+  description   = "Configuring and enabling the setting that an alert will be generated when Google detects incoming messages are received where a sender's name is in your Google Workspace directory, but the mail is not from your company's domains or domain aliases."
   query         = query.manual_control
   documentation = file("./cis_v120/docs/cis_v120_6_8.md")
 
