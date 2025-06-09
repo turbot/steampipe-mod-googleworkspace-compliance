@@ -5,9 +5,7 @@ benchmark "cis_v120" {
   children = [
     benchmark.cis_v120_1,
     benchmark.cis_v120_3,
-    benchmark.cis_v120_4,
-    benchmark.cis_v120_5,
-    benchmark.cis_v120_6
+    benchmark.cis_v120_4
   ]
 
   tags = merge(local.cis_v120_common_tags, {
