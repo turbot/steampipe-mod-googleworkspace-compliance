@@ -1,92 +1,90 @@
-# Table of Contents
+# Google Workspace Compliance Mod
 
-## Google Workspace Compliance Mod for Powerpipe
+Run individual configuration, compliance and security controls or full CIS compliance benchmarks across all your Google Workspace organization using Powerpipe and Steampipe.
 
-* [CIS v1.2.0 Benchmark](../cis_v120/docs/cis_v120_1.md)
-  * [Directory](../cis_v120/docs/cis_v120_1.md)
-  * [Devices](../cis_v120/docs/cis_v120_2.md)
-  * [Apps](../cis_v120/docs/cis_v120_3.md)
-  * [Security](../cis_v120/docs/cis_v120_4.md)
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-googleworkspace-compliance/main/docs/images/googleworkspace_cis_v120_dashboard.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-googleworkspace-compliance/main/docs/images/googleworkspace_cis_v120_console.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-googleworkspace-compliance/main/docs/images/googleworkspace_compliance.png" width="50%" type="thumbnail"/>
 
-## Mod Details
+## Documentation
 
-### Configuration
+- **[Benchmarks and controls →](https://hub.powerpipe.io/mods/turbot/googleworkspace_compliance/controls)**
+- **[Named queries →](https://hub.powerpipe.io/mods/turbot/googleworkspace_compliance/queries)**
 
-This mod uses a common set of [variables](../cis_v120/docs/variables.md) for defining both the common and tag dimensions. Each can be passed in several ways:
+## Getting Started
 
-1. Environment variables:
-```bash
-export PP_VAR_common_dimensions='["domain", "connection_name"]'
-export PP_VAR_tag_dimensions='["Environment", "Owner"]'
-```
+### Installation
 
-2. Powerpipe.ppvars file:
-```hcl
-common_dimensions = ["domain", "connection_name"]
-tag_dimensions = ["Environment", "Owner"]
-```
+Install Powerpipe (https://powerpipe.io/downloads), or use Brew:
 
-3. Command-line arguments:
-```bash
-powerpipe benchmark run googleworkspace_compliance.benchmark.cis_v120 \
-  --var 'common_dimensions=["domain", "connection_name"]'
-```
-
-### Requirements
-
-- [Powerpipe](https://powerpipe.io/downloads)
-- [Steampipe](https://steampipe.io/downloads)
-- [Google Workspace plugin for Steampipe](https://hub.steampipe.io/plugins/turbot/googleworkspace)
-
-### Getting Started
-
-Install Powerpipe:
 ```bash
 brew install turbot/tap/powerpipe
 ```
 
-Install Steampipe:
+This mod requires [Steampipe](https://steampipe.io) with the [Google Workspace plugin](https://hub.steampipe.io/plugins/turbot/googleworkspace) and the [Google Directory plugin](https://hub.steampipe.io/plugins/turbot/googledirectory) as the data source. Install Steampipe (https://steampipe.io/downloads), or use Brew:
+
 ```bash
 brew install turbot/tap/steampipe
 steampipe plugin install googleworkspace
+steampipe plugin install googledirectory
 ```
 
-Clone this repository:
+Finally, install the mod:
+
 ```bash
-git clone https://github.com/turbot/steampipe-mod-googleworkspace-compliance.git
-cd steampipe-mod-googleworkspace-compliance
+mkdir dashboards
+cd dashboards
+powerpipe mod init
+powerpipe mod install github.com/turbot/steampipe-mod-googleworkspace-compliance
 ```
 
-Start Steampipe as a service:
+### Browsing Dashboards
+
+Start Steampipe as the data source:
+
 ```bash
 steampipe service start
 ```
 
-Run all benchmarks:
+Start the dashboard server:
+
+```bash
+powerpipe server
+```
+
+Browse and view your dashboards at **http://localhost:9033**.
+
+### Running Checks in Your Terminal
+
+Instead of running benchmarks in a dashboard, you can also run them within your
+terminal with the `powerpipe benchmark` command:
+
+List available benchmarks:
+
+```bash
+powerpipe benchmark list
+```
+
+Run a benchmark:
+
 ```bash
 powerpipe benchmark run googleworkspace_compliance.benchmark.cis_v120
 ```
 
-Run a specific benchmark:
-```bash
-powerpipe benchmark run googleworkspace_compliance.benchmark.cis_v120_1
-```
+Different output formats are also available, for more information please see
+[Output Formats](https://powerpipe.io/docs/reference/cli/benchmark#output-formats).
 
-### Credentials
+## Open Source & Contributing
 
-This mod uses the credentials configured in the [Google Workspace plugin for Steampipe](https://hub.steampipe.io/plugins/turbot/googleworkspace).
+This repository is published under the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0). Please see our [code of conduct](https://github.com/turbot/.github/blob/main/CODE_OF_CONDUCT.md). We look forward to collaborating with you!
 
-### Implementation Notes
+[Steampipe](https://steampipe.io) and [Powerpipe](https://powerpipe.io) are products produced from this open source software, exclusively by [Turbot HQ, Inc](https://turbot.com). They are distributed under our commercial terms. Others are allowed to make their own distribution of the software, but cannot use any of the Turbot trademarks, cloud services, etc. You can learn more in our [Open Source FAQ](https://turbot.com/open-source).
 
-- Each control in this benchmark is implemented using SQL queries against the Steampipe Google Workspace plugin tables
-- Controls return one of the following status values:
-  - `ok` - The control check passed
-  - `alarm` - The control check failed
-  - `info` - The control check found something that should be reviewed
-  - `skip` - The control check was skipped
+## Get Involved
 
-### References
+**[Join #powerpipe on Slack →](https://turbot.com/community/join)**
 
-- [CIS Google Workspace Benchmark v1.2.0](https://www.cisecurity.org/benchmark/google_workspace)
-- [Google Workspace Security Best Practices](https://support.google.com/a/answer/7587183)
-- [Google Workspace Admin Console](https://admin.google.com) 
+Want to help but don't know where to start? Pick up one of the `help wanted` issues:
+
+- [Powerpipe](https://github.com/turbot/powerpipe/labels/help%20wanted)
+- [Google Workspace Compliance Mod](https://github.com/turbot/steampipe-mod-googleworkspace-compliance/labels/help%20wanted) 
