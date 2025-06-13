@@ -17,8 +17,8 @@ query "gmail_delegation_disabled" {
         else 'alarm'
       end as status,
       case
-        when delegates is null or jsonb_array_length(delegates) = 0 then 'No mailbox delegation configured for user: ' || user_email
-        else 'Mailbox delegation is enabled for user: ' || user_email || ' with ' || jsonb_array_length(delegates) || ' delegate(s)'
+        when delegates is null or jsonb_array_length(delegates) = 0 then 'No mailbox delegation configured for user: ' || user_email || '.'
+        else 'Mailbox delegation is enabled for user: ' || user_email || ' with ' || jsonb_array_length(delegates) || ' delegate(s).'
       end as reason
     from
       gmail_settings;
@@ -47,10 +47,10 @@ query "gmail_pop_imap_disabled" {
       end as status,
       case
         when (pop ->> 'accessWindow' = 'disabled' or pop ->> 'accessWindow' is null)
-        and (imap ->> 'enabled' = 'false' or imap ->> 'enabled' is null) then 'POP and IMAP access disabled for user: ' || user_email
-        when pop ->> 'accessWindow' != 'disabled' and pop ->> 'accessWindow' is not null then 'POP access enabled for user: ' || user_email || ' (access window: ' || (pop ->> 'accessWindow') || ')'
-        when imap ->> 'enabled' = 'true' then 'IMAP access enabled for user: ' || user_email
-        else 'POP or IMAP access may be enabled for user: ' || user_email
+        and (imap ->> 'enabled' = 'false' or imap ->> 'enabled' is null) then 'POP and IMAP access disabled for user: ' || user_email || '.'
+        when pop ->> 'accessWindow' != 'disabled' and pop ->> 'accessWindow' is not null then 'POP access enabled for user: ' || user_email || ' (access window: ' || (pop ->> 'accessWindow') || ').'
+        when imap ->> 'enabled' = 'true' then 'IMAP access enabled for user: ' || user_email || '.'
+        else 'POP or IMAP access may be enabled for user: ' || user_email || '.'
       end as reason
     from
       gmail_settings;
@@ -76,8 +76,8 @@ query "gmail_auto_forwarding_disabled" {
         else 'alarm'
       end as status,
       case
-        when auto_forwarding ->> 'enabled' = 'false' or auto_forwarding ->> 'enabled' is null then 'Auto-forwarding disabled for user: ' || user_email
-        else 'Auto-forwarding enabled for user: ' || user_email || ' to: ' || coalesce(auto_forwarding ->> 'emailAddress', 'unknown address')
+        when auto_forwarding ->> 'enabled' = 'false' or auto_forwarding ->> 'enabled' is null then 'Auto-forwarding disabled for user: ' || user_email || '.'
+        else 'Auto-forwarding enabled for user: ' || user_email || ' to: ' || coalesce(auto_forwarding ->> 'emailAddress', 'unknown address') || '.'
       end as reason
     from
       gmail_settings;

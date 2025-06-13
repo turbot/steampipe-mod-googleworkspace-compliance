@@ -68,8 +68,8 @@ query "admin_super_admin_dedicated" {
         else 'alarm'
       end as status,
       case
-        when dual_role_count = 0 then 'All super admin accounts are dedicated (no dual admin roles)'
-        else 'Found ' || dual_role_count || ' super admin account(s) that also have delegated admin roles'
+        when dual_role_count = 0 then 'All super admin accounts are dedicated (no dual admin roles).'
+        else 'Found ' || dual_role_count || ' super admin account(s) that also have delegated admin roles.'
       end as reason
     from
       summary;
@@ -101,11 +101,11 @@ query "admin_2fa_enrolled" {
       end as status,
       case
         when is_enrolled_in_2sv = false then 
-          format('Admin user %s is not enrolled in 2-Step Verification (role: %s)', primary_email, coalesce(role_name, 'Admin'))
+          format('Admin user %s is not enrolled in 2-Step Verification (role: %s).', primary_email, coalesce(role_name, 'Admin'))
         when is_enrolled_in_2sv = true and is_enforced_in_2sv = false then
-          format('Admin user %s has 2FA enrolled but not enforced (role: %s)', primary_email, coalesce(role_name, 'Admin'))
+          format('Admin user %s has 2FA enrolled but not enforced (role: %s).', primary_email, coalesce(role_name, 'Admin'))
         else 
-          format('Admin user %s has 2-Step Verification properly configured (role: %s)', primary_email, coalesce(role_name, 'Admin'))
+          format('Admin user %s has 2-Step Verification properly configured (role: %s).', primary_email, coalesce(role_name, 'Admin'))
       end as reason
     from
       admin_users
@@ -127,15 +127,15 @@ query "all_users_2fa_enrolled" {
       end as status,
       case
         when is_enrolled_in_2sv = false then 
-          format('User %s is not enrolled in 2-Step Verification%s', primary_email, 
+          format('User %s is not enrolled in 2-Step Verification%s.', primary_email, 
       case
         when is_admin then ' (ADMIN)' else '' end)
         when is_enrolled_in_2sv = true and is_enforced_in_2sv = false then
-          format('User %s has 2FA enrolled but not enforced%s', primary_email,
+          format('User %s has 2FA enrolled but not enforced%s.', primary_email,
       case
         when is_admin then ' (ADMIN)' else '' end)
         else 
-          format('User %s has 2-Step Verification properly configured%s', primary_email,
+          format('User %s has 2-Step Verification properly configured%s.', primary_email,
       case
         when is_admin then ' (ADMIN)' else '' end)
       end as reason

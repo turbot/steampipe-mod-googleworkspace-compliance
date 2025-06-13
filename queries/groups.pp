@@ -15,8 +15,8 @@ query "groups_admin_created_only" {
         else 'alarm'
       end as status,
       case
-        when user_created_groups = 0 then 'All ' || total_groups || ' groups were created by administrators'
-        else 'Found ' || user_created_groups || ' groups created by users out of ' || total_groups || ' total groups'
+        when user_created_groups = 0 then 'All ' || total_groups || ' groups were created by administrators.'
+        else 'Found ' || user_created_groups || ' groups created by users out of ' || total_groups || ' total groups.'
       end as reason
     from
       group_creation_stats;
@@ -36,7 +36,7 @@ query "groups_external_access_restricted" {
     select
       group_email as resource,
       'info' as status,
-      'Group "' || group_name || '" has ' || direct_members_count || ' members - external member analysis requires individual group inspection' as reason
+      'Group "' || group_name || '" has ' || direct_members_count || ' members - external member analysis requires individual group inspection.' as reason
     from
       groups_with_members;
   EOQ
