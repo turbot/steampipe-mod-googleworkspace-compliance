@@ -1,3 +1,10 @@
+locals {
+  cis_v120_common_tags = merge(local.googleworkspace_compliance_common_tags, {
+    cis         = "true"
+    cis_version = "v1.2.0"
+  })
+}
+
 benchmark "cis_v120" {
   title         = "CIS v1.2.0"
   description   = "The CIS Google Workspace Foundations Benchmark provides the prescriptive guidance for establishing a secure configuration posture for CIS Google Workspace Foundations Benchmark v1.2.0."
