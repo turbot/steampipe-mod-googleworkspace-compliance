@@ -1,5 +1,3 @@
-To obtain the latest version of the official guide, please visit [http://benchmarks.cisecurity.org](http://benchmarks.cisecurity.org)
-
 ## Overview
 
 The CIS Google Workspace Foundations Benchmark provides the prescriptive guidance for establishing a secure configuration posture for CIS Google Workspace Foundations Benchmark v1.2.0.
@@ -8,10 +6,17 @@ The CIS Google Workspace Foundations Benchmark provides the prescriptive guidanc
 
 The following configuration profiles are defined by this Benchmark:
 
-### Level 1 - CIS Google Workspace Foundations Benchmark v1.2.0
+### Enterprise Level 1
+Items in this profile apply to customer deployments of Google Workspace with an
+Enterprise license and intend to:
+- be practical and prudent;
+- provide a clear security benefit; and
+- not inhibit the utility of the technology beyond acceptable means.
 
-Items in this profile intend to:
-
-### Level 2 - LCIS Google Workspace Foundations Benchmark v1.2.0 (extends Level 1 - CIS Google Workspace Foundations Benchmark v1.2.0)
-
-Items in this profile exhibit one or more of the following characteristics:
+### Enterprise Level 2
+This profile extends the "Enterprise Level 1" profile. Items in this profile exhibit
+one or more of the following characteristics and is focused on customer
+deployments of Google Workspace Enterprise:
+- are intended for environments or use cases where security is paramount
+- acts as defense in depth measure
+- may negatively inhibit the utility or performance of the technology.
