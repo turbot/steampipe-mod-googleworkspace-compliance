@@ -56,7 +56,7 @@ benchmark "cis_v120_4_1_1" {
 control "cis_v120_4_1_1_1" {
   title         = "4.1.1.1 (L1) Ensure 2-Step Verification (Multi-Factor Authentication) is enforced for all users in administrative roles"
   description   = "Enforce 2-Step Verification (Multi-Factor Authentication) for all users assigned administrative roles."
-  query         = query.admin_2fa_enrolled
+  query         = query.directory_user_admin_2fa_enrolled
   documentation = file("./cis_v120/docs/cis_v120_4_1_1_1.md")
 
   tags = merge(local.cis_v120_4_1_1_common_tags, {
@@ -70,7 +70,7 @@ control "cis_v120_4_1_1_1" {
 control "cis_v120_4_1_1_3" {
   title         = "4.1.1.3 (L1) Ensure 2-Step Verification (Multi-Factor Authentication) is enforced for all users"
   description   = "Enforce 2-Step Verification (Multi-Factor Authentication) for all users."
-  query         = query.all_users_2fa_enrolled
+  query         = query.directory_user_2fa_enrolled
   documentation = file("./cis_v120/docs/cis_v120_4_1_1_3.md")
 
   tags = merge(local.cis_v120_4_1_1_common_tags, {

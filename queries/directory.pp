@@ -1,4 +1,4 @@
-query "admin_super_admin_count" {
+query "directory_user_admin_count" {
   sql = <<-EOQ
     with super_admins as (
       select
@@ -20,7 +20,7 @@ query "admin_super_admin_count" {
   EOQ
 }
 
-query "admin_super_admin_max_count" {
+query "directory_user_admin_max_count" {
   sql = <<-EOQ
     with super_admins as (
       select
@@ -42,7 +42,7 @@ query "admin_super_admin_max_count" {
   EOQ
 }
 
-query "admin_super_admin_dedicated" {
+query "directory_user_is_delegated_admin" {
   sql = <<-EOQ
     with dual_role_admins as (
       select
@@ -76,7 +76,7 @@ query "admin_super_admin_dedicated" {
   EOQ
 }
 
-query "admin_2fa_enrolled" {
+query "directory_user_admin_2fa_enrolled" {
   sql = <<-EOQ
     with admin_users as (
       select 
@@ -116,7 +116,7 @@ query "admin_2fa_enrolled" {
   EOQ
 }
 
-query "all_users_2fa_enrolled" {
+query "directory_user_2fa_enrolled" {
   sql = <<-EOQ
     select
       primary_email as resource,
