@@ -245,27 +245,12 @@ benchmark "cis_v120_3_1_6" {
   title         = "3.1.6 Groups for Business"
   documentation = file("./cis_v120/docs/cis_v120_3_1_6.md")
   children = [
-    control.cis_v120_3_1_6_1,
     control.cis_v120_3_1_6_2
   ]
 
   tags = merge(local.cis_v120_3_1_6_common_tags, {
     type    = "Benchmark"
     service = "GoogleWorkspace/General"
-  })
-}
-
-control "cis_v120_3_1_6_1" {
-  title         = "3.1.6.1 (L1) Ensure accessing groups from outside this organization is set to private"
-  description   = "Choose whether people outside your organization can access your groups."
-  query         = query.groups_external_access_restricted
-  documentation = file("./cis_v120/docs/cis_v120_3_1_6_1.md")
-
-  tags = merge(local.cis_v120_3_1_6_common_tags, {
-    cis_item_id = "3.1.6.1"
-    cis_level   = "1"
-    cis_type    = "manual"
-    service     = "GoogleWorkspace/Groups"
   })
 }
 
