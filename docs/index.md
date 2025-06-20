@@ -1,12 +1,10 @@
-# Google Workspace Compliance Mod for Powerpipe
+# Google Workspace Compliance Mod
 
 Run individual configuration, compliance and security controls or full CIS compliance benchmarks across all your Google Workspace organization using Powerpipe and Steampipe.
 
-Run checks in a dashboard:
-![image](https://raw.githubusercontent.com/turbot/steampipe-mod-googleworkspace-compliance/main/docs/images/googleworkspace_cis_v120_dashboard.png)
-
-Or in a terminal:
-![image](https://raw.githubusercontent.com/turbot/steampipe-mod-googleworkspace-compliance/main/docs/images/googleworkspace_cis_v120_console.png)
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-googleworkspace-compliance/main/docs/images/googleworkspace_cis_v120_dashboard.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-googleworkspace-compliance/main/docs/images/googleworkspace_cis_v120_console.png" width="50%" type="thumbnail"/>
+<img src="https://raw.githubusercontent.com/turbot/steampipe-mod-googleworkspace-compliance/main/docs/images/googleworkspace_compliance.png" width="50%" type="thumbnail"/>
 
 ## Documentation
 
@@ -89,4 +87,4 @@ This repository is published under the [Apache 2.0 license](https://www.apache.o
 Want to help but don't know where to start? Pick up one of the `help wanted` issues:
 
 - [Powerpipe](https://github.com/turbot/powerpipe/labels/help%20wanted)
-- [Google Workspace Compliance Mod](https://github.com/turbot/steampipe-mod-googleworkspace-compliance/labels/help%20wanted)
+- [Google Workspace Compliance Mod](https://github.com/turbot/steampipe-mod-googleworkspace-compliance/labels/help%20wanted) 
