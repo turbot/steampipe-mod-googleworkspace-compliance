@@ -5,3 +5,10 @@ locals {
     service  = "Google Workspace"
   }
 } 
+
+
+variable "database" {
+  type        = connection.steampipe
+  description = "Steampipe database connection string."
+  default     = connection.steampipe.default
+}

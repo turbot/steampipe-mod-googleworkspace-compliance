@@ -6,6 +6,7 @@ mod "googleworkspace_compliance" {
   documentation = file("./docs/index.md")
   icon          = "/images/mods/turbot/googleworkspace-compliance.svg"
   categories    = ["googleworkspace", "cis", "compliance", "security"]
+  database      = var.database
 
   opengraph {
     title       = "Powerpipe Mod for Google Workspace Compliance"
