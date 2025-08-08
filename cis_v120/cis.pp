@@ -6,7 +6,7 @@ locals {
 }
 
 benchmark "cis_v120" {
-  title         = "CIS v1.2.0"
+  title         = "Google Workspace CIS v1.2.0"
   description   = "The CIS Google Workspace Foundations Benchmark provides the prescriptive guidance for establishing a secure configuration posture for CIS Google Workspace Foundations Benchmark v1.2.0."
   documentation = file("./cis_v120/docs/cis_overview.md")
   children = [
